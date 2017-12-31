@@ -9,11 +9,14 @@
 opt=$1
 usage="""Usage: pip-update [option]
 Options:
+ 	pip		Update pip's modules
  	pip2		Update pip2's modules
+ 	pip2.7		Update pip2.7's modules
 	pip3		Update pip3's modules
+	pip3.6		Update pip3.6's modules
 	pip-pypy3	Update pip-pypy3's modules"""
 
-if [[ "$opt" = "pip2" || "$opt" = "pip3" || "$opt" = "pip-pypy3" ]]
+if [[ "$opt" = "pip2" || "$opt" = "pip2.7" || "$opt" = "pip" || "$opt" = "pip3" || "$opt" = "pip3.6" || "$opt" = "pip-pypy3" ]]
 then
 	for module in $( $opt list | cut -d' ' -f 1 ); do
 		$opt install --upgrade $module
